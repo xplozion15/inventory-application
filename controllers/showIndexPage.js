@@ -1,8 +1,11 @@
+const navbarLinks = [
+  { href: "/newcategory", text: "Add Category" },
+  { href: "/newitem", text: "Add Item" },
+];
 
 
-function showIndexPage(req,res) {
-    res.send("hi this is an index page of ur app");
+function showIndexPage(req, res) {
+  res.render("index",{navbarLinks:navbarLinks});
 }
 
-
-module.exports = {showIndexPage};
+module.exports = { showIndexPage };

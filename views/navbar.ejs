@@ -1,0 +1,8 @@
+<nav>
+    <ul>
+        <li>Fruit inventory</li>
+        <% navbarLinks.forEach(element => { %>  
+                <li><a href=<%=  element.href %>><%= element.text %></a></li>
+<% }); %>
+    </ul>
+</nav>
