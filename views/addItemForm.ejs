@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit inventory</title>
+</head>
+
+<body>
+    <%- include('navbar', {navbarLinks:navbarLinks}) %>
+        <form action="/items" method="post">
+            <div>
+                <label for="item-name">Item name</label>
+                <input type="text" name="item-name" id="item-name">
+            </div>
+              <div>
+                <label for="item-quantity">Quantity</label>
+                <input type="number" name="item-quantity" id="item-quantity">
+            </div>
+
+            <button type="submit">ADD!</button>
+        </form>
+</body>
+
+</html>

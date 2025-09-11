@@ -1,10 +1,10 @@
 const express = require("express");
 const itemsRouter = express.Router();
-const { showItems } = require("../controllers/showItems");
-const { addItem } = require("../controllers/addItem");
+const itemsController = require("../controllers/itemsController");
 
-itemsRouter.get("/", showItems);
-itemsRouter.post("/", addItem);
+itemsRouter.get("/", itemsController.showItems);
+itemsRouter.get("/addnewitem",itemsController.showAddNewItemForm)
+itemsRouter.post("/", itemsController.addItem);
 
 module.exports = { itemsRouter };
 

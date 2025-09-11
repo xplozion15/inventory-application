@@ -1,11 +1,8 @@
 const express = require("express");
 const indexRouter = express.Router();
-const { showIndexPage } = require("../controllers/showIndexPage");
+const indexController = require("../controllers/indexController.js");
 
 
-
-
-
-indexRouter.get("/", showIndexPage);
+indexRouter.get("/", indexController.showIndexPage);
 
 module.exports = { indexRouter };
