@@ -1,0 +1,24 @@
+{
+  "name": "inventory-application",
+  "version": "1.0.0",
+  "description": "A simple inventory app made to learn how to use backend express and postgreSQL!",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xplozion15/inventory-application.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xplozion15/inventory-application/issues"
+  },
+  "homepage": "https://github.com/xplozion15/inventory-application#readme",
+  "dependencies": {
+    "dotenv": "^17.2.2",
+    "express": "^5.1.0"
+  }
+}
