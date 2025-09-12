@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit inventory</title>
+</head>
+<body>
+    <%- include('navbar', {navbarLinks:navbarLinks}) %>
+    <% categories.forEach(category => {    %>
+        <div>
+            <p> <%= category.name %></p>
+        </div>
+<% }); %>
+ <a href="/categories/addnewcategory">Add Category</a>
+</body> 
+</html>
