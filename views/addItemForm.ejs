@@ -14,11 +14,20 @@
                 <label for="item-name">Item name</label>
                 <input type="text" name="item-name" id="item-name">
             </div>
-              <div>
+            <div>
                 <label for="item-quantity">Quantity</label>
                 <input type="number" name="item-quantity" id="item-quantity">
             </div>
 
+             <div>
+                <label for="select-category">Category</label>
+                <select name="select-category" id="select-category">
+
+                            <% categories.forEach(category => {  %>
+                                <option value="<%= category.id %>"><%= category.name %> </option>
+                      <%     });  %>
+                </select>
+            </div>
             <button type="submit">ADD!</button>
         </form>
 </body>

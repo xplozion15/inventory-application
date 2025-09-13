@@ -6,9 +6,14 @@ async function showCategories(req, res) {
   res.render("showCategories",{navbarLinks:navbarLinks,categories:categories});
 }
 
-function addCategory(req, res) {
+async function addCategory(req, res) {
+  const formInputs = {
+    categoryName : req.body["category-name"],
+  }
+  await db.postCategoryInDb(formInputs);
   res.redirect("/categories");
 }
+
 
 function showAddNewCategoryForm(req, res) {
   res.render("addCategoryForm", { navbarLinks: navbarLinks });

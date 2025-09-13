@@ -17,7 +17,8 @@ app.set("view engine", "ejs");
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
-
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use("/", indexRouter);
 app.use("/categories", categoriesRouter);
@@ -26,5 +27,4 @@ app.use("/items", itemsRouter);
 app.listen(port, () => {
   console.log(`Inventory app listening on port ${port}`);
 });
-
 

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruit inventory</title>
+</head>
+<body>
+    <%- include('navbar', {navbarLinks:navbarLinks}) %>
+    <% items.forEach(fruit => {    %>
+        <div>
+            <p> <%= fruit.name %></p>
+            <p> <%= fruit.quantity %></p>
+            
+             <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="post">
+                <button type="submit">Update</button>
+            </form>
+
+            <form action="/items/<%=fruit.id%>/delete" method="post">
+                <button type="submit">Delete</button>
+            </form>
+
+        </div>
+<% }); %>
+ <a href="/items/addnewitem">Add Category</a>
+</body> 
+</html>

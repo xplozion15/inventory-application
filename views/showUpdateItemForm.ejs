@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/items/<%=itemId%>/showUpdateItemForm/update" method="post">
+        <div>
+            <label for="fruit-name">Fruit name</label>
+            <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
+
+        </div>
+         <div>
+            <label for="fruit-name-updated">Update Fruit name</label>
+            <input type="text" value="<%= fruitName %>" name="fruit-name-updated" id="fruit-name-updated">
+        </div>
+
+        <div>
+            <label for="fruit-quantity">Quantity</label>
+            <input type="number" value="<%= fruitQuantity %>" name="fruit-quantity-updated" id="fruit-quantity-updated">
+        </div>
+
+        <button type="submit">UPDATE</button>
+    </form>
+</body>
+</html>
