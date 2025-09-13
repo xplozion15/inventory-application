@@ -1,8 +1,11 @@
 <nav>
     <ul>
-        <li>Fruit inventory</li>
-        <% navbarLinks.forEach(element => { %>  
+        <li class="logo"><a href="/">Fruit inventory</a></li>
+        <div class="navbar-add-container">
+             <% navbarLinks.forEach(element => { %>  
                 <li><a href=<%=  element.href %>><%= element.text %></a></li>
 <% }); %>
+        </div>
+       
     </ul>
 </nav>

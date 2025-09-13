@@ -55,7 +55,7 @@ async function  showDeleteItemForm(req,res) {
 async function  showUpdateItemForm(req,res) {
     const itemId = req.params.id;
     const fruit = await db.getFruitFromDb(itemId);
-    res.render("showUpdateItemForm",{itemId:itemId,fruitName:fruit.name,fruitQuantity:fruit.quantity});
+    res.render("showUpdateItemForm",{itemId:itemId,fruitName:fruit.name,fruitQuantity:fruit.quantity,navbarLinks:navbarLinks});
 }
 
 module.exports = { showItems, addItem , showAddNewItemForm,deleteItem,showUpdateItemForm,updateItem,showDeleteItemForm};
