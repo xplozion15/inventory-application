@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <form action="/items/<%=itemId%>/showUpdateItemForm/update" method="post">
+    <%- include('navbar', {navbarLinks:navbarLinks}) %>
+    <form action="/items/<%=itemId%>/update" method="post">
         <div>
             <label for="fruit-name">Fruit name</label>
             <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
@@ -21,7 +22,7 @@
             <label for="fruit-quantity">Quantity</label>
             <input type="number" value="<%= fruitQuantity %>" name="fruit-quantity-updated" id="fruit-quantity-updated">
         </div>
-
+        <a href="/items"><button type="button">GO BACK</button></a>
         <button type="submit">UPDATE</button>
     </form>
 </body>

@@ -19,4 +19,31 @@ function showAddNewCategoryForm(req, res) {
   res.render("addCategoryForm", { navbarLinks: navbarLinks });
 }
 
-module.exports = { showCategories, addCategory, showAddNewCategoryForm };
+async function  showDeleteCategoriesForm(req,res) {
+    const categoryId = req.params.id;
+    const category = await db.getCategoryFromDb(categoryId);
+    res.render("showDeleteCategoryForm",{categoryId:categoryId,categoryName:category.name,navbarLinks: navbarLinks});
+}
+
+async function  showUpdateCategoriesForm(req,res) {
+    const categoryId = req.params.id;
+    const category = await db.getCategoryFromDb(categoryId);
+    res.render("showUpdateCategoryForm",{categoryId:categoryId,categoryName:category.name,navbarLinks: navbarLinks});
+}
+
+async function updateCategory(req,res) {
+  console.log(req.body);
+    const categoryId = parseInt(req.params.id);
+    const categoryName = req.body["category-name-updated"];
+    
+    await db.updateCategoryFromDb(categoryId,categoryName);
+    res.redirect("/categories")
+}
+
+async function deleteCategory(req,res) {
+  console.log(req.body);
+    const categoryId = parseInt(req.params.id);
+    await db.deleteCategoryFromDb(categoryId);
+    res.redirect("/categories")
+}
+module.exports = { showCategories, addCategory, showAddNewCategoryForm,showUpdateCategoriesForm,showDeleteCategoriesForm,updateCategory,deleteCategory};

@@ -12,11 +12,11 @@
             <p> <%= fruit.name %></p>
             <p> <%= fruit.quantity %></p>
             
-             <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="post">
+             <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="get">
                 <button type="submit">Update</button>
             </form>
 
-            <form action="/items/<%=fruit.id%>/delete" method="post">
+            <form action="/items/<%=fruit.id%>/showDeleteItemForm" method="get">
                 <button type="submit">Delete</button>
             </form>
 

@@ -13,15 +13,24 @@ async function  deleteItem(req,res) {
     res.redirect("/items")
 }
 
-async function  updateItem(req,res) {
+async function updateItem(req,res) {
+  console.log(req.body);
+    const itemId = parseInt(req.params.id);
+    const itemName = req.body["fruit-name-updated"];
+    const itemQuantity = req.body["fruit-quantity-updated"];
+    await db.updateItemFromDb(itemId,itemName,itemQuantity);
+    res.redirect("/items")
+}
 
-    const itemId = req.params.id;
-    await db.updateItemFromDb(itemId);
+async function deleteItem(req,res) {
+  console.log(req.body);
+    const itemId = parseInt(req.params.id);
+    const itemName = req.body["fruit-name"];
+    await db.deleteItemFromDb(itemId,itemName);
     res.redirect("/items")
 }
 
 async function addItem(req, res) {
-  console.log(req.body)
   const formInputs = {
     itemName : req.body["item-name"],
     itemQuantity : req.body["item-quantity"],
@@ -37,14 +46,20 @@ async function showAddNewItemForm(req,res) {
  res.render("addItemForm",{navbarLinks:navbarLinks,categories:categories})
 }
 
-async function  showUpdateItemForm(req,res) {
+async function  showDeleteItemForm(req,res) {
     const itemId = req.params.id;
-    const fruitName = await db.getFruitFromDb().name;
-    const fruitQuantity = await db.getFruitFromDb().quantity;
-    res.render("showUpdateItemForm",{itemId:itemId,fruitName:fruitName,fruitQuantity:fruitQuantity});
+    const fruit = await db.getFruitFromDb(itemId);
+    res.render("showDeleteItemForm",{itemId:itemId,fruitName:fruit.name});
 }
 
+async function  showUpdateItemForm(req,res) {
+    const itemId = req.params.id;
+    const fruit = await db.getFruitFromDb(itemId);
+    res.render("showUpdateItemForm",{itemId:itemId,fruitName:fruit.name,fruitQuantity:fruit.quantity});
+}
 
-module.exports = { showItems, addItem , showAddNewItemForm,deleteItem,showUpdateItemForm};
+module.exports = { showItems, addItem , showAddNewItemForm,deleteItem,showUpdateItemForm,updateItem,showDeleteItemForm};
+
+
 
 

@@ -10,8 +10,17 @@
     <% categories.forEach(category => {    %>
         <div>
             <p> <%= category.name %></p>
+             <form action="/categories/<%=category.id%>/showUpdateCategoryForm" method="get">
+                <button type="submit">Update</button>
+            </form>
+
+            <form action="/categories/<%=category.id%>/showDeleteCategoryForm" method="get">
+                <button type="submit">Delete</button>
+            </form>
         </div>
 <% }); %>
  <a href="/categories/addnewcategory">Add Category</a>
+
+
 </body> 
 </html>

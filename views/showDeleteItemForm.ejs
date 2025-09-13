@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/items/<%=itemId%>/delete" method="post">
+        <div>
+            <label for="fruit-name">Fruit name</label>
+            <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
+
+        </div>
+        <a href="/items"><button type="button">GO BACK</button></a>
+        <button type="submit">DELETE</button>
+    </form>
+</body>
+</html>
