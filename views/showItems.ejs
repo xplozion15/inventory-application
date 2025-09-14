@@ -8,21 +8,25 @@
 </head>
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <% items.forEach(fruit => {    %>
-        <div>
+   <div class="item-container">
+     <% items.forEach(fruit => {    %>
+        <div class="item-instance">
             <p> <%= fruit.name %></p>
             <p> <%= fruit.quantity %></p>
             
-             <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="get">
+            <div class="add-new-item-button-div">
+                 <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="get">
                 <button type="submit">Update</button>
-            </form>
+                </form>
 
             <form action="/items/<%=fruit.id%>/showDeleteItemForm" method="get">
                 <button type="submit">Delete</button>
             </form>
+            </div>
 
         </div>
 <% }); %>
+   </div>
  <a href="/items/addnewitem">Add Category</a>
 </body> 
 </html>

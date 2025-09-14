@@ -8,20 +8,30 @@
 </head>
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <% categories.forEach(category => {    %>
-        <div>
+    <div class="add-new-category-button-div">
+        <a href="/categories/addnewcategory" class="add-category-button">Add Category</a>
+    </div>
+    <div class="category-container">
+        <% categories.forEach(category => {    %>
+        <div class="category-instance">
             <p> <%= category.name %></p>
-             <form action="/categories/<%=category.id%>/showUpdateCategoryForm" method="get">
+             <div class="show-category-buttons-div">
+                <form action="/categories/<%=category.id%>/showUpdateCategoryForm" method="get">
                 <button type="submit">Update</button>
             </form>
 
             <form action="/categories/<%=category.id%>/showDeleteCategoryForm" method="get">
                 <button type="submit">Delete</button>
             </form>
-        </div>
-<% }); %>
- <a href="/categories/addnewcategory">Add Category</a>
+             </div>
 
+        </div>
+        
+<% }); %>
+
+    </div>
+ 
+    
 
 </body> 
 </html>
