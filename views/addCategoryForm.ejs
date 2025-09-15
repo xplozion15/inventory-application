@@ -12,28 +12,28 @@
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
         <div class="form-container">
-            
+
             <form action="/categories" method="post" class="update-del-add-form" autocomplete="off">
-            <div class="form-input-div">
-                <label for="category-name">Category name</label>
-                <input type="text" name="category-name" id="category-name">
-            </div>
-            <div class="form-input-div">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <div class="errors-div">
-                <%- include("partials/errors.ejs") %>
-            </div>
-            
-            <div class="form-buttons-div">
-                <a href="/categories"><button type="button">GO BACK</button></a>
-            <button type="submit">ADD!</button>
-            </div>
-            
-        </form>
+                <div class="form-input-div">
+                    <label for="category-name">Category name</label>
+                    <input type="text" name="category-name" id="category-name">
+                </div>
+                <div class="form-input-div">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="errors-div">
+                    <%- include("partials/errors.ejs") %>
+                </div>
+
+                <div class="form-buttons-div">
+                    <a href="/categories"><button type="button">GO BACK</button></a>
+                    <button type="submit">ADD!</button>
+                </div>
+
+            </form>
         </div>
-        
+
 </body>
 
 </html>

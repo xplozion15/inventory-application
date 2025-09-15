@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,31 +8,35 @@
     <title>Fruit inventory</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <div class="add-new-item-button-div">
-         <a href="/items/addnewitem" class="add-item-button">Add Item</a>
-    </div>
-   
-   <div class="item-container">
-     <% items.forEach(fruit => {    %>
-        <div class="item-instance">
-            <p> <%= fruit.name %></p>
-            <p> <%= fruit.quantity %></p>
-            
-            <div class="add-new-item-button-div">
-                 <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="get">
-                <button type="submit">Update</button>
-                </form>
-
-            <form action="/items/<%=fruit.id%>/showDeleteItemForm" method="get">
-                <button type="submit">Delete</button>
-            </form>
-            </div>
-
+        <div class="add-new-item-button-div">
+            <a href="/items/addnewitem" class="add-item-button">Add Item</a>
         </div>
-<% }); %>
-   </div>
- 
-</body> 
+
+        <div class="item-container">
+            <% items.forEach(fruit=> { %>
+                <div class="item-instance">
+                    <p>
+                        <%= fruit.name %>
+                    </p>
+                    <p>
+                        <%= fruit.quantity %>
+                    </p>
+                    <div class="add-new-item-button-div">
+                        <form action="/items/<%=fruit.id%>/showUpdateItemForm" method="get">
+                            <button type="submit">Update</button>
+                        </form>
+
+                        <form action="/items/<%=fruit.id%>/showDeleteItemForm" method="get">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+                <% }); %>
+        </div>
+</body>
+
 </html>

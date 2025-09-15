@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,35 +8,40 @@
     <title>Fruit inventory</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <div class="form-container">
-        <form action="/items/<%=itemId%>/update" method="post" class="update-del-add-form" autocomplete="off">
-        <div class="form-input-div">
-            <label for="fruit-name">Fruit name</label>
-            <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
+        <div class="form-container">
+            <form action="/items/<%=itemId%>/update" method="post" class="update-del-add-form" autocomplete="off">
+                <div class="form-input-div">
+                    <label for="fruit-name">Fruit name</label>
+                    <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
 
-        </div>
-         <div class="form-input-div">
-            <label for="fruit-name-updated">Update Fruit name</label>
-            <input type="text" value="<%= fruitName %>" name="fruit-name-updated" id="fruit-name-updated">
-        </div>
+                </div>
+                <div class="form-input-div">
+                    <label for="fruit-name-updated">Update Fruit name</label>
+                    <input type="text" value="<%= fruitName %>" name="fruit-name-updated" id="fruit-name-updated">
+                </div>
 
-        <div class="form-input-div">
-            <label for="fruit-quantity">Quantity</label>
-            <input type="number" value="<%= fruitQuantity %>" name="fruit-quantity-updated" id="fruit-quantity-updated">
+                <div class="form-input-div">
+                    <label for="fruit-quantity">Quantity</label>
+                    <input type="number" value="<%= fruitQuantity %>" name="fruit-quantity-updated"
+                        id="fruit-quantity-updated">
+                </div>
+                <div class="form-input-div">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="errors-div">
+                    <%- include("partials/errors.ejs") %>
+                </div>
+
+                <div class="form-buttons-div">
+                    <a href="/items"><button type="button">GO BACK</button></a>
+                    <button type="submit">UPDATE</button>
+                </div>
+            </form>
         </div>
-         <div class="form-input-div">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <%- include("partials/errors.ejs") %>
-            
-        <div class="form-buttons-div">
-            <a href="/items"><button type="button">GO BACK</button></a>
-        <button type="submit">UPDATE</button>
-        </div>
-    </form>
-    </div>
 </body>
+
 </html>

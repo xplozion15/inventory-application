@@ -13,34 +13,38 @@
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
         <div class="form-container">
             <form action="/items" method="post" class="update-del-add-form" autocomplete="off">
-            <div class="form-input-div">
-                <label for="item-name">Item name</label>
-                <input type="text" name="item-name" id="item-name">
-            </div>
-            <div class="form-input-div">
-                <label for="item-quantity">Quantity</label>
-                <input type="number" name="item-quantity" id="item-quantity">
-            </div>
+                <div class="form-input-div">
+                    <label for="item-name">Item name</label>
+                    <input type="text" name="item-name" id="item-name">
+                </div>
+                <div class="form-input-div">
+                    <label for="item-quantity">Quantity</label>
+                    <input type="number" name="item-quantity" id="item-quantity">
+                </div>
 
-             <div class="form-input-div">
-                <label for="select-category">Category</label>
-                <select name="select-category" id="select-category">
+                <div class="form-input-div">
+                    <label for="select-category">Category</label>
+                    <select name="select-category" id="select-category">
 
-                            <% categories.forEach(category => {  %>
-                                <option value="<%= category.id %>"><%= category.name %> </option>
-                      <%     });  %>
-                </select>
-            </div>
-             <div class="form-input-div">
-                <label for="password">Password</label>
-                <input type="password" name="password" id="password">
-            </div>
-            <%- include("partials/errors.ejs") %>
-            <div class="form-buttons-div">
-                <a href="/items"><button type="button">GO BACK</button></a>
-            <button type="submit">ADD!</button>
-            </div>
-        </form>
+                        <% categories.forEach(category=> { %>
+                            <option value="<%= category.id %>">
+                                <%= category.name %>
+                            </option>
+                            <% }); %>
+                    </select>
+                </div>
+                <div class="form-input-div">
+                    <label for="password">Password</label>
+                    <input type="password" name="password" id="password">
+                </div>
+                <div class="errors-div">
+                    <%- include("partials/errors.ejs") %>
+                </div>
+                <div class="form-buttons-div">
+                    <a href="/items"><button type="button">GO BACK</button></a>
+                    <button type="submit">ADD!</button>
+                </div>
+            </form>
         </div>
 </body>
 

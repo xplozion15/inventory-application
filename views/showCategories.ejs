@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,32 +8,33 @@
     <title>Fruit inventory</title>
     <link rel="stylesheet" href="/styles.css">
 </head>
+
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <div class="add-new-category-button-div">
-        <a href="/categories/addnewcategory" class="add-category-button">Add Category</a>
-    </div>
-    <div class="category-container">
-        <% categories.forEach(category => {    %>
-        <div class="category-instance">
-            <p> <%= category.name %></p>
-             <div class="show-category-buttons-div">
-                <form action="/categories/<%=category.id%>/showUpdateCategoryForm" method="get">
-                <button type="submit">Update</button>
-            </form>
+        <div class="add-new-category-button-div">
+            <a href="/categories/addnewcategory" class="add-category-button">Add Category</a>
+        </div>
+        <div class="category-container">
+            <% categories.forEach(category=> { %>
+                <div class="category-instance">
+                    <p>
+                        <%= category.name %>
+                    </p>
+                    <div class="show-category-buttons-div">
+                        <form action="/categories/<%=category.id%>/showUpdateCategoryForm" method="get">
+                            <button type="submit">Update</button>
+                        </form>
 
-            <form action="/categories/<%=category.id%>/showDeleteCategoryForm" method="get">
-                <button type="submit">Delete</button>
-            </form>
-             </div>
+                        <form action="/categories/<%=category.id%>/showDeleteCategoryForm" method="get">
+                            <button type="submit">Delete</button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <% }); %>
 
         </div>
-        
-<% }); %>
+</body>
 
-    </div>
- 
-    
-
-</body> 
 </html>
