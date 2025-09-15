@@ -4,8 +4,6 @@ const { validationResult } = require("express-validator");
 require("dotenv").config();
 const validator = require("../middlewares/validators");
 
-
-
 async function showCategories(req, res) {
   const categories = await db.getCategoriesFromDb();
   res.render("showCategories", {
@@ -83,29 +81,27 @@ const updateCategory = [
   },
 ];
 
-
 const deleteCategory = [
   validator.validateDeleteCategory,
   async (req, res) => {
     const errors = validationResult(req);
 
-     const categoryId = parseInt(req.params.id);
-     const categoryName = req.body["category-name"];
+    const categoryId = parseInt(req.params.id);
+    const categoryName = req.body["category-name"];
 
     if (!errors.isEmpty()) {
       return res.status(400).render("showDeleteCategoryForm", {
         errors: errors.array(),
         categoryId: categoryId,
-        categoryName:categoryName,
+        categoryName: categoryName,
         navbarLinks: navbarLinks,
       });
     } else {
       await db.deleteCategoryFromDb(categoryId);
-  res.redirect("/categories");
+      res.redirect("/categories");
     }
   },
 ];
-
 
 module.exports = {
   showCategories,
