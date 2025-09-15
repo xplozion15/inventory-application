@@ -156,7 +156,13 @@ nav a {
   background-color: var(--main-color);
   color: white;
   border-radius: 7rem;
+  transition: 600ms;
 }
+
+.categories-div:hover,.items-div:hover {
+  background-color: var(--hover-color);
+}
+
 
 .category-container,
 .item-container {
@@ -178,6 +184,7 @@ nav a {
   background-color: var(--secondary-color);
   gap: 2rem;
 }
+
 
 .category-instance p,
 .item-instance p {
@@ -213,7 +220,14 @@ nav a {
   padding: 0.5rem;
   border-radius: 0.5rem;
   margin-left: 0.5rem;
+  transition: 600ms;
 }
+
+.add-category-button:hover,
+.add-item-button:hover {
+  background-color: var(--hover-color);
+}
+
 
 form button {
   background-color: var(--main-color);
@@ -231,8 +245,8 @@ a {
   transition: 600ms;
 }
 
-button:hover,
-a:hover {
+button:hover
+ {
   background-color: var(--hover-color);
 }
 
@@ -278,6 +292,22 @@ select {
   height: 2.3rem;
 }
 
+.errors-div {
+  display: flex;
+  flex-direction: row;
+  /* border: 2px solid red; */
+  width: 100%;
+  margin: auto;
+  font-size: 0.8rem;
+  color: rgb(207, 9, 9);
+}
+
+.errors-div ul {
+  margin-right: 1rem;
+  list-style-type:disc;
+}
+
+
 /* media queries here below */
 
 @media (max-width: 480px) {
@@ -298,6 +328,8 @@ select {
     font-size: 0.7rem;
     font-weight: 600;
   }
+
+ 
 
   .logo {
     font-size: 1.3rem;
