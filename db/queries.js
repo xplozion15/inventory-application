@@ -25,7 +25,7 @@ async function postCategoryInDb(formInput) {
   ]);
 }
 
-async function deleteItemFromDb(itemId, itemName) {
+async function deleteItemFromDb(itemId) {
   await pool.query("DELETE FROM fruits WHERE id=$1", [itemId]);
 }
 
@@ -41,7 +41,6 @@ async function getFruitFromDb(itemId) {
   let { rows } = await pool.query("SELECT * FROM fruits WHERE id = $1", [
     itemId,
   ]);
-  // return rows[0].name;
   return rows[0];
 }
 

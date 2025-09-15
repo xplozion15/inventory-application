@@ -5,6 +5,7 @@ require("dotenv").config();
 const validator = require("../middlewares/validators");
 
 
+
 async function showCategories(req, res) {
   const categories = await db.getCategoriesFromDb();
   res.render("showCategories", {
@@ -59,21 +60,53 @@ async function showUpdateCategoriesForm(req, res) {
   });
 }
 
-async function updateCategory(req, res) {
-  console.log(req.body);
-  const categoryId = parseInt(req.params.id);
-  const categoryName = req.body["category-name-updated"];
+const updateCategory = [
+  validator.validateUpdateCategory,
+  async (req, res) => {
+    const errors = validationResult(req);
 
-  await db.updateCategoryFromDb(categoryId, categoryName);
-  res.redirect("/categories");
-}
+    const categoryId = parseInt(req.params.id);
+    const categoryName = req.body["category-name"];
+    const updatedCategoryName = req.body["category-name-updated"];
 
-async function deleteCategory(req, res) {
-  console.log(req.body);
-  const categoryId = parseInt(req.params.id);
-  await db.deleteCategoryFromDb(categoryId);
+    if (!errors.isEmpty()) {
+      return res.status(400).render("showUpdateCategoryForm", {
+        errors: errors.array(),
+        categoryId: categoryId,
+        categoryName: categoryName,
+        navbarLinks: navbarLinks,
+      });
+    } else {
+      await db.updateCategoryFromDb(categoryId, updatedCategoryName);
+      res.redirect("/categories");
+    }
+  },
+];
+
+
+const deleteCategory = [
+  validator.validateDeleteCategory,
+  async (req, res) => {
+    const errors = validationResult(req);
+
+     const categoryId = parseInt(req.params.id);
+     const categoryName = req.body["category-name"];
+
+    if (!errors.isEmpty()) {
+      return res.status(400).render("showDeleteCategoryForm", {
+        errors: errors.array(),
+        categoryId: categoryId,
+        categoryName:categoryName,
+        navbarLinks: navbarLinks,
+      });
+    } else {
+      await db.deleteCategoryFromDb(categoryId);
   res.redirect("/categories");
-}
+    }
+  },
+];
+
+
 module.exports = {
   showCategories,
   addCategory,

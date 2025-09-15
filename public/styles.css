@@ -1,4 +1,6 @@
+/* reset sheet  */
 /* 1. Use a more-intuitive box-sizing model */
+
 *,
 *::before,
 *::after {
@@ -146,7 +148,6 @@ nav a {
 .items-div {
   width: 40%;
   height: 80%;
-  /* border: 2px solid peachpuff; */
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -253,7 +254,7 @@ a:hover {
   justify-content: center;
   background-color: var(--secondary-color);
   gap: 1rem;
-  width: 30%;
+  width: 37%;
   border-radius: 2rem;
 }
 
@@ -269,12 +270,12 @@ a:hover {
   justify-content: center;
   margin: auto;
   gap: 0.5rem;
+  width: 100%;
 }
 
 input,
 select {
   height: 2.3rem;
-  
 }
 
 /* media queries here below */
@@ -283,7 +284,6 @@ select {
   .main-buttons-container {
     width: 90vw;
     margin: auto;
-    /* border: 2px solid black; */
     flex-direction: column;
     gap: 1.2rem;
     margin-top: 1.8rem;
@@ -305,5 +305,24 @@ select {
 
   .update-del-add-form {
     width: 100%;
+  }
+}
+
+@media (max-width: 900px) and (orientation: portrait) {
+  .main-buttons-container {
+    width: 90vw;
+    margin: auto;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1.8rem;
+  }
+
+  .categories-div,
+  .items-div {
+    width: 100%;
+  }
+
+  .update-del-add-form {
+    width: 30rem;
   }
 }
