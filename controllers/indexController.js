@@ -3,9 +3,8 @@ const navbarLinks = [
   { href: "/items/addnewitem", text: "Add Item" },
 ];
 
-
 function showIndexPage(req, res) {
-  res.render("index",{navbarLinks:navbarLinks});
+  res.render("index", { navbarLinks: navbarLinks });
 }
 
-module.exports = { showIndexPage ,navbarLinks};
+module.exports = { showIndexPage, navbarLinks };

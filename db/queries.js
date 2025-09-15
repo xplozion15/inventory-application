@@ -1,7 +1,9 @@
 const pool = require("./pool");
 
 async function getCategoriesFromDb() {
-  const { rows } = await pool.query("SELECT * FROM fruit_categories ORDER BY id ASC");
+  const { rows } = await pool.query(
+    "SELECT * FROM fruit_categories ORDER BY id ASC",
+  );
   return rows;
 }
 
@@ -13,43 +15,54 @@ async function getItemsFromDb() {
 async function postItemInDb(formInput) {
   await pool.query(
     "INSERT INTO fruits (name,quantity,category_id) VALUES ($1, $2, $3)",
-    [formInput.itemName,formInput.itemQuantity,formInput.itemCategory],
+    [formInput.itemName, formInput.itemQuantity, formInput.itemCategory],
   );
 }
 
 async function postCategoryInDb(formInput) {
-  await pool.query(
-    "INSERT INTO fruit_categories (name) VALUES ($1)",
-    [formInput.categoryName],
-  );
+  await pool.query("INSERT INTO fruit_categories (name) VALUES ($1)", [
+    formInput.categoryName,
+  ]);
 }
 
-async function  deleteItemFromDb(itemId,itemName) {
-  await pool.query("DELETE FROM fruits WHERE id=$1",[itemId])
+async function deleteItemFromDb(itemId, itemName) {
+  await pool.query("DELETE FROM fruits WHERE id=$1", [itemId]);
 }
 
-async function  updateItemFromDb(itemId,itemName,itemQuantity) {
-  await pool.query("UPDATE fruits SET name=$2,quantity = $3 WHERE id=$1",[itemId,itemName,itemQuantity])
+async function updateItemFromDb(itemId, itemName, itemQuantity) {
+  await pool.query("UPDATE fruits SET name=$2,quantity = $3 WHERE id=$1", [
+    itemId,
+    itemName,
+    itemQuantity,
+  ]);
 }
 
 async function getFruitFromDb(itemId) {
-    let {rows} = await pool.query("SELECT * FROM fruits WHERE id = $1",[itemId]);
-    // return rows[0].name;
-    return rows[0];
-}
-
-async function getCategoryFromDb(categoryId) {
-  const { rows } = await pool.query("SELECT * FROM fruit_categories WHERE id = $1",[categoryId]);
+  let { rows } = await pool.query("SELECT * FROM fruits WHERE id = $1", [
+    itemId,
+  ]);
+  // return rows[0].name;
   return rows[0];
 }
 
-async function updateCategoryFromDb(categoryId,categoryName) {
-  await pool.query("UPDATE fruit_categories SET name=$2 WHERE id=$1",[categoryId,categoryName])
+async function getCategoryFromDb(categoryId) {
+  const { rows } = await pool.query(
+    "SELECT * FROM fruit_categories WHERE id = $1",
+    [categoryId],
+  );
+  return rows[0];
 }
 
-async function deleteCategoryFromDb(categoryId) { 
-    await pool.query("DELETE FROM fruits WHERE category_id = $1",[categoryId]);
-    await pool.query("DELETE from fruit_categories WHERE id = $1",[categoryId]);
+async function updateCategoryFromDb(categoryId, categoryName) {
+  await pool.query("UPDATE fruit_categories SET name=$2 WHERE id=$1", [
+    categoryId,
+    categoryName,
+  ]);
+}
+
+async function deleteCategoryFromDb(categoryId) {
+  await pool.query("DELETE FROM fruits WHERE category_id = $1", [categoryId]);
+  await pool.query("DELETE from fruit_categories WHERE id = $1", [categoryId]);
 }
 module.exports = {
   getCategoriesFromDb,
@@ -61,5 +74,5 @@ module.exports = {
   updateItemFromDb,
   getCategoryFromDb,
   updateCategoryFromDb,
-  deleteCategoryFromDb
+  deleteCategoryFromDb,
 };

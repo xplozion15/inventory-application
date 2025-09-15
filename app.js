@@ -23,8 +23,9 @@ app.use(express.json());
 app.use("/", indexRouter);
 app.use("/categories", categoriesRouter);
 app.use("/items", itemsRouter);
-
+app.use((req, res) => {
+  res.status(404).render("404", {});
+});
 app.listen(port, () => {
   console.log(`Inventory app listening on port ${port}`);
 });
-

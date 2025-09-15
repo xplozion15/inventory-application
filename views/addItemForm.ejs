@@ -11,7 +11,7 @@
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
         <div class="form-container">
-            <form action="/items" method="post" class="update-del-add-form">
+            <form action="/items" method="post" class="update-del-add-form" autocomplete="off">
             <div class="form-input-div">
                 <label for="item-name">Item name</label>
                 <input type="text" name="item-name" id="item-name">
@@ -29,6 +29,10 @@
                                 <option value="<%= category.id %>"><%= category.name %> </option>
                       <%     });  %>
                 </select>
+            </div>
+             <div class="form-input-div">
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password">
             </div>
             <div class="form-buttons-div">
                 <a href="/items"><button type="button">GO BACK</button></a>

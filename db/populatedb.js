@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const { Client } = require("pg");
-require('dotenv').config();
+require("dotenv").config();
 
 const SQL = `
 CREATE TABLE IF NOT EXISTS fruit_categories (
@@ -31,8 +31,7 @@ VALUES
   ('Peach', 20, 2),
   ('Cherry', 25, 3),
   ('Mango', 40, 4),
-  ('Apple', 35, 5);`
-
+  ('Apple', 35, 5);`;
 
 async function main() {
   console.log("seeding...");
