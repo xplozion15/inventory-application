@@ -7,14 +7,19 @@
     <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-    <form action="/items/<%=itemId%>/delete" method="post">
-        <div>
+    <%- include('navbar', {navbarLinks:navbarLinks}) %>
+    <div class="form-container">
+        <form action="/items/<%=itemId%>/delete" method="post" class="update-del-add-form">
+        <div class="form-input-div">
             <label for="fruit-name">Fruit name</label>
             <input type="text" value="<%= fruitName %>" name="fruit-name" id="fruit-name" readonly>
 
         </div>
+        <div class="form-buttons-div">
         <a href="/items"><button type="button">GO BACK</button></a>
         <button type="submit">DELETE</button>
+        </div>
     </form>
+    </div>
 </body>
 </html>

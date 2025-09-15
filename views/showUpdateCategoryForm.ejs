@@ -8,20 +8,24 @@
 </head>
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-    <form action="/categories/<%=categoryId%>/update" method="post">
-        <div>
+    <div class="form-container">
+        <form action="/categories/<%=categoryId%>/update" method="post" class="update-del-add-form">
+        <div class="form-input-div">
             <label for="category-name">Category name</label>
             <input type="text" value="<%= categoryName %>" name="category-name" id="category-name" readonly>
 
         </div>
-         <div>
+         <div class="form-input-div">
             <label for="category-name-updated">Update Category name</label>
             <input type="text" value="<%= categoryName %>" name="category-name-updated" id="category-name-updated">
         </div>
 
        
-        <a href="/categories"><button type="button">GO BACK</button></a>
+        <div class="form-buttons-div">
+            <a href="/categories"><button type="button">GO BACK</button></a>
         <button type="submit">UPDATE</button>
+        </div>
     </form>
+    </div>
 </body>
 </html>

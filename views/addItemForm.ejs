@@ -10,17 +10,18 @@
 
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
-        <form action="/items" method="post">
-            <div>
+        <div class="form-container">
+            <form action="/items" method="post" class="update-del-add-form">
+            <div class="form-input-div">
                 <label for="item-name">Item name</label>
                 <input type="text" name="item-name" id="item-name">
             </div>
-            <div>
+            <div class="form-input-div">
                 <label for="item-quantity">Quantity</label>
                 <input type="number" name="item-quantity" id="item-quantity">
             </div>
 
-             <div>
+             <div class="form-input-div">
                 <label for="select-category">Category</label>
                 <select name="select-category" id="select-category">
 
@@ -29,9 +30,12 @@
                       <%     });  %>
                 </select>
             </div>
-            <a href="/items"><button type="button">GO BACK</button></a>
+            <div class="form-buttons-div">
+                <a href="/items"><button type="button">GO BACK</button></a>
             <button type="submit">ADD!</button>
+            </div>
         </form>
+        </div>
 </body>
 
 </html>

@@ -8,6 +8,10 @@
 </head>
 <body>
     <%- include('navbar', {navbarLinks:navbarLinks}) %>
+    <div class="add-new-item-button-div">
+         <a href="/items/addnewitem" class="add-item-button">Add Item</a>
+    </div>
+   
    <div class="item-container">
      <% items.forEach(fruit => {    %>
         <div class="item-instance">
@@ -27,6 +31,6 @@
         </div>
 <% }); %>
    </div>
- <a href="/items/addnewitem">Add Category</a>
+ 
 </body> 
 </html>

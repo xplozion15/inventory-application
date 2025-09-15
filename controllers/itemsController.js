@@ -49,7 +49,7 @@ async function showAddNewItemForm(req,res) {
 async function  showDeleteItemForm(req,res) {
     const itemId = req.params.id;
     const fruit = await db.getFruitFromDb(itemId);
-    res.render("showDeleteItemForm",{itemId:itemId,fruitName:fruit.name});
+    res.render("showDeleteItemForm",{itemId:itemId,fruitName:fruit.name,navbarLinks:navbarLinks});
 }
 
 async function  showUpdateItemForm(req,res) {
