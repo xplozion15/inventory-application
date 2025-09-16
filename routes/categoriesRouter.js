@@ -20,6 +20,12 @@ categoriesRouter.get(
   "/:id/showDeleteCategoryForm",
   categoriesController.showDeleteCategoriesForm,
 );
+
+categoriesRouter.get(
+  "/:id/showItemsOfCategory",
+  categoriesController.showSpecificCategoryItems,
+);
+
 categoriesRouter.post("/:id/update", categoriesController.updateCategory);
 categoriesRouter.post("/:id/delete", categoriesController.deleteCategory);
 

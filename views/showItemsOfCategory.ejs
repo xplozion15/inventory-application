@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#3d405b">
+    <title>Fruit inventory</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+
+<body>
+    <%- include('navbar', { navbarLinks: navbarLinks }) %>
+
+        <% if (fruits.length> 0) { %>
+            <div class="fruit-container">
+                <% fruits.forEach(fruit=> { %>
+                    <div class="fruit-instance">
+                        <p>
+                            <%= fruit.name %>
+                        </p>
+                        <p>
+                            <%= fruit.quantity %>
+                        </p>
+                        <p>
+                            <%= fruit.fruit_category_name %>
+                        </p>
+                    </div>
+                    <% }) %>
+            </div>
+            <% } else { %>
+                <h1 class="such-empty-heading">Wow such empty. Maybe add some fruits to your inventory bro :(</h1>
+                <% } %>
+
+</body>
+
+</html>

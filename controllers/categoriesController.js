@@ -103,6 +103,16 @@ const deleteCategory = [
   },
 ];
 
+async function showSpecificCategoryItems(req, res) {
+  const categoryId = parseInt(req.params.id);
+  const fruits = await db.getFruitsOfACategoryFromDb(categoryId);
+  console.log(fruits);
+  res.render("showItemsOfCategory", {
+    fruits: fruits,
+    navbarLinks: navbarLinks,
+  });
+}
+
 module.exports = {
   showCategories,
   addCategory,
@@ -111,4 +121,5 @@ module.exports = {
   showDeleteCategoriesForm,
   updateCategory,
   deleteCategory,
+  showSpecificCategoryItems,
 };

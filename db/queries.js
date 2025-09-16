@@ -63,6 +63,15 @@ async function deleteCategoryFromDb(categoryId) {
   await pool.query("DELETE FROM fruits WHERE category_id = $1", [categoryId]);
   await pool.query("DELETE from fruit_categories WHERE id = $1", [categoryId]);
 }
+
+async function getFruitsOfACategoryFromDb(categoryId) {
+  const { rows } = await pool.query(
+    "SELECT fruits.id,fruits.name,fruits.quantity,fruit_categories.name AS fruit_category_name FROM fruits INNER JOIN fruit_categories ON fruits.category_id = fruit_categories.id WHERE fruits.category_id = $1;",
+    [categoryId],
+  );
+  return rows;
+}
+
 module.exports = {
   getCategoriesFromDb,
   getItemsFromDb,
@@ -74,4 +83,6 @@ module.exports = {
   getCategoryFromDb,
   updateCategoryFromDb,
   deleteCategoryFromDb,
+  getFruitFromDb,
+  getFruitsOfACategoryFromDb,
 };
